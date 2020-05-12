@@ -1,5 +1,7 @@
 package com.DayTime.DayTime.Entity;
 
+import org.hibernate.annotations.CollectionId;
+
 import javax.persistence.*;
 
 @Entity
@@ -10,23 +12,42 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
+    @Column(name="userId")
+    private long userId;
 
-    @Column(name="firstName")
+    @Column(name="First_Name")
     private String firstName;
 
-    @Column(name="lastName")
-    private String lastName;
+    @Column(name="Last_Name")
+    private  String lastName;
 
     @Column(name="Email")
     private String email;
 
-    public long getId() {
-        return Id;
+    @Column(name="Confirm_Email")
+    private String confirmEmail;
+
+    @Column(name="Password")
+    private String password;
+
+    private String confirmPassword;
+
+    @Column(name="Mobile_Number")
+    private String mobileNumber;
+
+    @Column(name="Alternate_Mobile_Number")
+    private String alternateMobileNumber;
+
+    public static long getSerialVersionUID() {
+        return serialVersionUID;
     }
 
-    public void setId(long id) {
-        Id = id;
+    public long getUserId() {
+        return userId;
+    }
+
+    public void setUserId(long userId) {
+        this.userId = userId;
     }
 
     public String getFirstName() {
@@ -53,13 +74,58 @@ public class User {
         this.email = email;
     }
 
+    public String getConfirmEmail() {
+        return confirmEmail;
+    }
+
+    public void setConfirmEmail(String confirmEmail) {
+        this.confirmEmail = confirmEmail;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
+    }
+
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+
+    public String getAlternateMobileNumber() {
+        return alternateMobileNumber;
+    }
+
+    public void setAlternateMobileNumber(String alternateMobileNumber) {
+        this.alternateMobileNumber = alternateMobileNumber;
+    }
+
     @Override
     public String toString() {
         return "User{" +
-                "Id=" + Id +
+                "userId=" + userId +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
+                ", confirmEmail='" + confirmEmail + '\'' +
+                ", password='" + password + '\'' +
+                ", confirmPassword='" + confirmPassword + '\'' +
+                ", mobileNumber='" + mobileNumber + '\'' +
+                ", alternateMobileNumber='" + alternateMobileNumber + '\'' +
                 '}';
     }
 
